@@ -1,0 +1,22 @@
+{
+  "name": "server-full-of-flowers",
+  "version": "1.0.0",
+  "description": "Server full of flowers!",
+  "main": "index.js",
+  "scripts": {
+    "test": "N/A"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N/A.git"
+  },
+  "keywords": [
+    "flowers"
+  ],
+  "author": "Sid Lin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/N/A/issues"
+  },
+  "homepage": "https://github.com/N/A#readme"
+}
