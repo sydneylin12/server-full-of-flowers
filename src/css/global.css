@@ -1,0 +1,71 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.page-heading {
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+/* Disable number input selector */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Custom styles from chatGPT for button */
+.apple-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgb(83, 135, 244);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 150px;
+}
+
+.apple-button:hover:not([disabled]) {
+    background-color: rgb(17, 89, 245);
+}
+
+.apple-button[disabled] {
+    background-color: rgb(255, 159, 159);
+    cursor: not-allowed;
+}
+
+.apple-input {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #555;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    outline: none;
+    width: 250px;
+    margin: 5px;
+}
+
+.apple-input:focus {
+    border-color: rgb(83, 135, 244);
+}
+
+.apple-input[error] {
+    border-color: rgb(255, 159, 159);
+}
+
+.apple-input[disabled] {
+    cursor: not-allowed;
+}

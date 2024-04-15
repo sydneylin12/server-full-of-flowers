@@ -1,0 +1,52 @@
+.folder {
+    width: 300px;
+    margin: 10px auto;
+}
+
+/* TODO: fix important */
+.collapsable {
+    width: inherit !important;
+    position: relative;
+    z-index: 100;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+    position: relative;
+    top: -10px;
+}
+
+.dropdown-list[hidden] {
+    display: none;
+}
+
+.dropdown-list li {
+    list-style-type: none;
+    width: 99%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 6px 0;
+    background-color: #f8f8f8;
+    z-index: 1;
+    border: 1px solid #ccc;
+}
+
+/* Round off the bottom of the dropdown */
+.dropdown-list li:last-child {
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* Add some filler to the top element */
+.dropdown-list li:first-child {
+    padding-top: 15px;
+}
+
+.fa-solid:hover {
+    transition: color 0.2s ease;
+    color: rgb(83, 135, 244);;
+}

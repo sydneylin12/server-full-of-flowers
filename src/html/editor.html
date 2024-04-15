@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Editor</title>
+    <link rel="stylesheet" href="../../dist/main.css">
+    <link rel="icon" href="https://images.emojiterra.com/google/noto-emoji/v2.034/512px/1f697.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Include stylesheet and Quill Library -->
+    <link href="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.snow.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/quill@2.0.0-rc.5/dist/quill.js"></script>
+
+    <div class="header">
+        <a class="link" href="./home.html">Home</a>
+        <a class="link" href="./editor.html">Editor</a>
+        <a class="link" href="./chapters.html">Chapters</a>
+    </div>
+
+    <div id="loader" class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <div class="content" id="editor-body" hidden>
+        <h1 class="page-heading">Chapter Editor</h1>
+        <div class="chapter-number-container">
+            <input placeholder="Chapter Title" id="chapter-input" class="apple-input" maxlength="30">
+            <input placeholder="Folder*" id="folder-input" class="apple-input" maxlength="30"/>
+        </div>
+
+        <!-- Create the Quill editor container -->
+        <div id="editor">
+            <p>Write your chapter here!</p>
+            <p>You can use <strong>bold</strong>, <i>italic</i>, and <u>underline</u> text!</p>
+        </div>
+
+        <div class="save-button-container">
+            <button id="save-button" class="apple-button">Save Chapter</button>
+            <span id="status-message-container"></span>
+        </div>
+    </div>
+
+    <script src="../../dist/bundle.js"></script>
+</head>
+
+</html>

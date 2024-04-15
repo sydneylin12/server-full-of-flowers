@@ -1,0 +1,269 @@
+/*!************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/chapters.css ***!
+  \************************************************************************/
+.folder {
+    width: 300px;
+    margin: 10px auto;
+}
+
+/* TODO: fix important */
+.collapsable {
+    width: inherit !important;
+    position: relative;
+    z-index: 100;
+}
+
+.dropdown-list {
+    display: flex;
+    flex-direction: column;
+    margin: 0px;
+    padding: 0px;
+    align-items: center;
+    position: relative;
+    top: -10px;
+}
+
+.dropdown-list[hidden] {
+    display: none;
+}
+
+.dropdown-list li {
+    list-style-type: none;
+    width: 99%;
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    padding: 6px 0;
+    background-color: #f8f8f8;
+    z-index: 1;
+    border: 1px solid #ccc;
+}
+
+/* Round off the bottom of the dropdown */
+.dropdown-list li:last-child {
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* Add some filler to the top element */
+.dropdown-list li:first-child {
+    padding-top: 15px;
+}
+
+.fa-solid:hover {
+    transition: color 0.2s ease;
+    color: rgb(83, 135, 244);;
+}
+
+/*!**********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/editor.css ***!
+  \**********************************************************************/
+.chapter-number-container {
+    padding: 10px 0;
+}
+
+.save-button-container {
+    padding: 10px 0;
+}
+
+.ql-container {
+    min-height: 60vh;
+    max-height: 90vh;
+    scroll-behavior: auto;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* Add styles on top of quill's styles */
+.ql-toolbar {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.status-message {
+    padding-left: 20px;
+    color: rgb(76, 217, 100);
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.status-message {
+    animation: fadeOut 3s ease forwards;
+    /* 1s duration, ease timing function */
+}
+/*!**********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/global.css ***!
+  \**********************************************************************/
+body {
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+.page-heading {
+    text-align: center;
+}
+
+.content {
+    padding: 20px;
+}
+
+/* Disable number input selector */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Custom styles from chatGPT for button */
+.apple-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #fff;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 5px;
+    background-color: rgb(83, 135, 244);
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 150px;
+}
+
+.apple-button:hover:not([disabled]) {
+    background-color: rgb(17, 89, 245);
+}
+
+.apple-button[disabled] {
+    background-color: rgb(255, 159, 159);
+    cursor: not-allowed;
+}
+
+.apple-input {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #555;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background-color: #f8f8f8;
+    transition: border-color 0.3s ease, color 0.3s ease;
+    box-sizing: border-box;
+    outline: none;
+    width: 250px;
+    margin: 5px;
+}
+
+.apple-input:focus {
+    border-color: rgb(83, 135, 244);
+}
+
+.apple-input[error] {
+    border-color: rgb(255, 159, 159);
+}
+
+.apple-input[disabled] {
+    cursor: not-allowed;
+}
+
+/*!**********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/header.css ***!
+  \**********************************************************************/
+.header {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+
+.link {
+    font-size: 20px;
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease;
+    /* Add transition effect */
+}
+
+.link:nth-child(2) {
+    border-width: 1px; /* Width of the border */
+    border-style: solid; /* Style of the border */
+    border-image: linear-gradient(to top, lightgray, white 90%) 1; /* Gradient fading upwards applied to border */
+    border-bottom: none;
+}
+
+.link:hover {
+    background-color: rgb(83, 135, 244);
+    border: none;
+}
+
+/*!********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/main.css ***!
+  \********************************************************************/
+.image-container {
+    text-align: center;
+}
+
+.cover {
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 5px;
+}
+/*!********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/page.css ***!
+  \********************************************************************/
+.paragraph {
+    padding: 0px 30px;
+    margin: 0px;
+}
+
+.paragraph-container {
+    margin: 30px 0px;
+}
+
+hr {
+    width: 200px;
+}
+
+.times {
+    font-family: math;
+}
+/*!***********************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js!./src/css/spinner.css ***!
+  \***********************************************************************/
+.loader {
+    border: 16px solid #f3f3f3;
+    border-top: 16px solid #949494;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: auto;
+}
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    /* Horizontally center the content */
+    align-items: center;
+    /* Vertically center the content */
+    width: 100%;
+    height: 80vh;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

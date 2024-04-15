@@ -1,0 +1,41 @@
+.chapter-number-container {
+    padding: 10px 0;
+}
+
+.save-button-container {
+    padding: 10px 0;
+}
+
+.ql-container {
+    min-height: 60vh;
+    max-height: 90vh;
+    scroll-behavior: auto;
+    overflow-y: auto;
+    /* Enable vertical scrolling */
+    border-radius: 0px 0px 5px 5px;
+}
+
+/* Add styles on top of quill's styles */
+.ql-toolbar {
+    border-radius: 5px 5px 0px 0px;
+}
+
+.status-message {
+    padding-left: 20px;
+    color: rgb(76, 217, 100);
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        display: none;
+    }
+}
+
+.status-message {
+    animation: fadeOut 3s ease forwards;
+    /* 1s duration, ease timing function */
+}

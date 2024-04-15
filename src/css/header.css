@@ -1,0 +1,27 @@
+.header {
+    display: flex;
+    border-bottom: 1px solid lightgray;
+}
+
+.link {
+    font-size: 20px;
+    flex-grow: 1;
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    transition: background-color 0.3s ease;
+    /* Add transition effect */
+}
+
+.link:nth-child(2) {
+    border-width: 1px; /* Width of the border */
+    border-style: solid; /* Style of the border */
+    border-image: linear-gradient(to top, lightgray, white 90%) 1; /* Gradient fading upwards applied to border */
+    border-bottom: none;
+}
+
+.link:hover {
+    background-color: rgb(83, 135, 244);
+    border: none;
+}

@@ -1,0 +1,9 @@
+.image-container {
+    text-align: center;
+}
+
+.cover {
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 5px;
+}
