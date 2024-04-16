@@ -10,7 +10,7 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.ts$/, // Apply ts-loader to .ts files
+                test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/
             },
@@ -25,7 +25,7 @@ module.exports = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.js'] // Add .ts extension to resolve TypeScript files
+        extensions: ['.tsx', '.ts']
     },
     plugins: [
         new MiniCssExtractPlugin(),
