@@ -3,7 +3,9 @@
 }
 
 .cover {
-    max-height: 80vh;
+    max-height: 70vh;
+    max-width: 80%;
+    height: auto;
     object-fit: contain;
     border-radius: 5px;
 }
