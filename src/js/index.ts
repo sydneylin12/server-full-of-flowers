@@ -1,4 +1,5 @@
 // Import all the local files here for webpack to bundle
+import './home';
 import './editor';
 import './page';
 import './chapters';

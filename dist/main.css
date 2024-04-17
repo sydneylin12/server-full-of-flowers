@@ -212,7 +212,7 @@ input::-webkit-inner-spin-button {
 }
 
 .cover {
-    max-height: 80%;
+    max-height: 70vh;
     max-width: 80%;
     height: auto;
     object-fit: contain;
