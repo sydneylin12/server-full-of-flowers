@@ -1,17 +1,19 @@
 import React from 'react';
+import Header from './components/header';
 import { createRoot } from 'react-dom/client';
+import { isPage } from './utils/utils';
 
-// Clear the existing HTML content
-document.body.innerHTML = '<div id="home"></div>';
+if (isPage('home')) {
+    document.body.innerHTML = '<div id="home"></div>';
+    const root = createRoot(document.getElementById('home')!);
+    root.render(
+        <div>
+            <Header />
+            <h1 className='page-heading'>The Editor Full of Flowers</h1>
+            <div className='image-container'>
+                <img className='cover' src='../img/cover.jpg'></img>
+            </div>
+        </div>
+    );
+}
 
-// Render your React component instead
-// @ts-ignore
-const root = createRoot(document.getElementById('home'));
-
-root.render(
-    <div className="header">
-        <a className="link" href="./home.html">Home</a>
-        <a className="link" href="./editor.html">Editor</a>
-        <a className="link" href="./chapters.html">Chapters</a>
-    </div>
-);
