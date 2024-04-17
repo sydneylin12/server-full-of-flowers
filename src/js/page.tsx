@@ -43,11 +43,11 @@ const PageViewer = () => {
 	return (
 		<div className="content times">
 			<h1 className="page-heading">{data.name}</h1>
-			<hr/>
+			<hr />
 			<div className="paragraph-container">
-				<p className="paragraph">
-					{data.text}
-				</p>
+				<p className="paragraph" dangerouslySetInnerHTML={{
+					__html: data.text
+				}} />
 			</div>
 		</div>
 	);

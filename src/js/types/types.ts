@@ -11,3 +11,14 @@ export interface Chapter extends ChapterBase {
 export interface CreateChapterPayload extends ChapterBase {
     chapter_id?: string;
 }
+
+export interface DropdownProps {
+    folderName: string;
+    chapters: Chapter[];
+}
+
+export interface DropdownItemProps {
+    chapter: Chapter;
+}
+
+export type FolderMap = Record<string, Chapter[]>;
