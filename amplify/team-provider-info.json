@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-serverfullofflowers-dev-d9dc2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::345993564382:role/amplify-serverfullofflowers-dev-d9dc2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::345993564382:role/amplify-serverfullofflowers-dev-d9dc2-authRole",
+      "Region": "us-west-2",
+      "DeploymentBucketName": "amplify-serverfullofflowers-dev-d9dc2-deployment",
+      "UnauthRoleName": "amplify-serverfullofflowers-dev-d9dc2-unauthRole",
+      "StackName": "amplify-serverfullofflowers-dev-d9dc2",
+      "StackId": "arn:aws:cloudformation:us-west-2:345993564382:stack/amplify-serverfullofflowers-dev-d9dc2/70c41390-0b67-11ef-8c87-06f831f989d7",
+      "AmplifyAppId": "d1olhg056u8te4"
+    },
+    "categories": {
+      "auth": {
+        "serverfullofflowers24760498": {}
+      }
+    }
+  }
+}

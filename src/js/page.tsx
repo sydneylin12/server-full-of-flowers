@@ -5,16 +5,17 @@ import { getQueryParam, isPage, makeRequest } from "./utils/utils";
 import Header from "./components/header";
 import React, { useEffect, useState } from "react";
 import Loader from "./components/loader";
+import { withAuthenticator } from "@aws-amplify/ui-react";
 
 const renderReactOnPageViewer = () => {
 	document.body.innerHTML = '<div id="page"></div>';
 	const root = createRoot(document.getElementById('page')!);
-	root.render(
-		<>
-			<Header />
-			<PageViewer />
-		</>
-	)
+	const Page = () => <>
+		<Header />
+		<PageViewer />
+	</>;
+	const App = withAuthenticator(Page)
+	root.render(<App />);
 };
 
 const PageViewer = () => {

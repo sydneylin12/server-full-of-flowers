@@ -6,16 +6,17 @@ import { API_ROUTES } from "./constants/constants";
 import { constructQueryParam, isPage, makeRequest } from "./utils/utils";
 import { createRoot } from "react-dom/client";
 import { Chapter, DropdownItemProps, DropdownProps, FolderMap } from "./types/types";
+import { withAuthenticator } from '@aws-amplify/ui-react';
 
 const renderReactOnChapters = () => {
 	document.body.innerHTML = '<div id="chapters"></div>';
 	const root = createRoot(document.getElementById('chapters')!);
-	root.render(
-		<>
-			<Header />
-			<Chapters />
-		</>
-	);
+	const ChaptersPage = () => <>
+		<Header />
+		<Chapters />
+	</>;
+	const App = withAuthenticator(ChaptersPage);
+	root.render(<App />);
 };
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
