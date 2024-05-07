@@ -2,7 +2,7 @@
   "name": "server-full-of-flowers",
   "version": "1.0.0",
   "description": "Server full of flowers!",
-  "main": "src/index.ts",
+  "main": "src/index.tsx",
   "scripts": {
     "build": "webpack --mode development",
     "watch": "nodemon -e ts,tsx --watch src --exec npm run build"
@@ -28,6 +28,8 @@
     "quill": "^1.3.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-quill": "^2.0.0",
+    "react-router-dom": "^6.23.0",
     "typescript": "^5.4.4"
   },
   "devDependencies": {

@@ -1,23 +1,10 @@
 import _ from 'lodash';
-import Header from "./components/header";
-import Loader from "./components/loader";
+import Header from "../components/header";
+import Loader from "../components/loader";
 import React, { useEffect, useState } from "react";
-import { API_ROUTES } from "./constants/constants";
-import { constructQueryParam, isPage, makeRequest } from "./utils/utils";
-import { createRoot } from "react-dom/client";
-import { Chapter, DropdownItemProps, DropdownProps, FolderMap } from "./types/types";
-import { withAuthenticator } from '@aws-amplify/ui-react';
-
-const renderReactOnChapters = () => {
-	document.body.innerHTML = '<div id="chapters"></div>';
-	const root = createRoot(document.getElementById('chapters')!);
-	const ChaptersPage = () => <>
-		<Header />
-		<Chapters />
-	</>;
-	const App = withAuthenticator(ChaptersPage);
-	root.render(<App />);
-};
+import { API_ROUTES } from "../constants/constants";
+import { constructQueryParam, isPage, makeRequest } from "../utils/utils";
+import { Chapter, DropdownItemProps, DropdownProps, FolderMap } from "../types/types";
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
 	chapter
@@ -54,7 +41,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 	);
 };
 
-const Chapters = () => {
+const ChaptersComponent = () => {
 	const [folders, setFolders] = useState<FolderMap>({});
 
 	const getData = async () => {
@@ -92,6 +79,9 @@ const Chapters = () => {
 	);
 }
 
-if (isPage('chapters')) {
-	renderReactOnChapters();
-}
+const Chapters: React.FC = () => <>
+	<Header />
+	<ChaptersComponent />
+</>;
+
+export default Chapters;

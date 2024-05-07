@@ -1,22 +1,10 @@
 import { createRoot } from "react-dom/client";
-import { API_ROUTES, CHAPTER_PK } from "./constants/constants";
-import { Chapter } from "./types/types";
-import { getQueryParam, isPage, makeRequest } from "./utils/utils";
-import Header from "./components/header";
+import { API_ROUTES, CHAPTER_PK } from "../constants/constants";
+import { Chapter } from "../types/types";
+import { getQueryParam, isPage, makeRequest } from "../utils/utils";
+import Header from "../components/header";
 import React, { useEffect, useState } from "react";
-import Loader from "./components/loader";
-import { withAuthenticator } from "@aws-amplify/ui-react";
-
-const renderReactOnPageViewer = () => {
-	document.body.innerHTML = '<div id="page"></div>';
-	const root = createRoot(document.getElementById('page')!);
-	const Page = () => <>
-		<Header />
-		<PageViewer />
-	</>;
-	const App = withAuthenticator(Page)
-	root.render(<App />);
-};
+import Loader from "../components/loader";
 
 const PageViewer = () => {
 	const [data, setData] = useState<Chapter | undefined>(undefined);
@@ -54,6 +42,9 @@ const PageViewer = () => {
 	);
 }
 
-if (isPage('page')) {
-	renderReactOnPageViewer();
-}
+const Page: React.FC = () => <>
+	<Header />
+	<PageViewer />
+</>;
+
+export default Page;
