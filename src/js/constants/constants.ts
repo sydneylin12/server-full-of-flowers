@@ -1,4 +1,4 @@
-export const CHAPTER_QUERY_PARAM = 'chapter';
+export const CHAPTER_ID_PARAM = 'id';
 export const CHAPTER_PK = 'chapter_id';
 
 export enum API_ROUTES {

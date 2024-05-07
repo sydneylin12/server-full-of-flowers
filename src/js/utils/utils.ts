@@ -1,29 +1,19 @@
-import { CHAPTER_QUERY_PARAM } from "../constants/constants";
-
 export const wait = async (ms: number) => {
     return new Promise(resolve => setTimeout(resolve, ms));
 };
 
-export const hasQueryParam = () => {
-    const queryParams = new URLSearchParams(window.location.search);
-    return queryParams.has(CHAPTER_QUERY_PARAM);
-};
-
-export const getQueryParam = () => {
-    const queryParams = new URLSearchParams(window.location.search);
-    return queryParams.get(CHAPTER_QUERY_PARAM) || undefined;
-};
-
-export const constructQueryParam = (chapterId: String) => {
-	return `?chapter=${chapterId}`;
-};
-
-// Bug: webpack executes all code on all pages
-export const isPage = (pageName: string) => {
-    return window.location.href.includes(pageName);
-};
-
-export const makeRequest = async(url: string, options?: RequestInit) => {
+export const makeRequest = async (url: string, options?: RequestInit) => {
     const response = await fetch(url, options);
     return await response.json();
-;}
+};
+
+/**
+ * HACK: query the URL to get the chapter ID since we can't use hooks in class components.
+ * @returns The chapter ID in the URL params.
+ */
+export const getParam = () => {
+    const parts = window.location.href.split('/');
+    const lastPart = parts[parts.length -1]
+    const regex = /chapter-[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$/;
+    return regex.exec(lastPart)?.[0];
+};

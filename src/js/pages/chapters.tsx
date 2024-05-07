@@ -3,15 +3,17 @@ import Header from "../components/header";
 import Loader from "../components/loader";
 import React, { useEffect, useState } from "react";
 import { API_ROUTES } from "../constants/constants";
-import { constructQueryParam, isPage, makeRequest } from "../utils/utils";
+import { makeRequest } from "../utils/utils";
 import { Chapter, DropdownItemProps, DropdownProps, FolderMap } from "../types/types";
+import { useNavigate } from "react-router-dom";
+import { Button } from '@aws-amplify/ui-react';
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
 	chapter
 }) => {
-	const queryParam = constructQueryParam(chapter.chapter_id);
-	const goToRead = () => window.location.href = './page.html' + queryParam;
-	const goToEdit = () => window.location.href = './editor.html' + queryParam;
+	const navigate = useNavigate();
+	const goToRead = () => navigate(`/page/${chapter.chapter_id}`);
+	const goToEdit = () => navigate(`/editor/${chapter.chapter_id}`);
 	return (
 		<li key={chapter.chapter_id}>
 			<span>{chapter.name}</span>
@@ -29,9 +31,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 	const onClick = () => setIsHidden(!isHidden);
 	return (
 		<div className="folder">
-			<button className="apple-button collapsable" onClick={onClick}>
+			<Button className='apple-button collapsable' onClick={onClick}>
 				{folderName}
-			</button>
+			</Button>
 			<ul className="dropdown-list" hidden={isHidden}>
 				{chapters.map(chapter =>
 					<DropdownItem chapter={chapter} />

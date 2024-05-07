@@ -1,29 +1,25 @@
-import { createRoot } from "react-dom/client";
-import { API_ROUTES, CHAPTER_PK } from "../constants/constants";
+import { API_ROUTES, CHAPTER_PK, CHAPTER_ID_PARAM } from "../constants/constants";
 import { Chapter } from "../types/types";
-import { getQueryParam, isPage, makeRequest } from "../utils/utils";
+import { makeRequest } from "../utils/utils";
 import Header from "../components/header";
 import React, { useEffect, useState } from "react";
 import Loader from "../components/loader";
+import { useParams } from "react-router-dom";
 
 const PageViewer = () => {
 	const [data, setData] = useState<Chapter | undefined>(undefined);
+	const params = useParams();
 
 	const getData = async () => {
-		const chapterId = getQueryParam();
+		const chapterId = params[CHAPTER_ID_PARAM];
 		const chapters = await makeRequest(API_ROUTES.GET_CHAPTERS) as Chapter[];
 		const chapter = chapters.find(c => c[CHAPTER_PK] === chapterId);
 		setData(chapter);
 	};
 
-	// Call it once initially
 	useEffect(() => {
 		getData();
 	}, []);
-
-	useEffect(() => {
-		console.log('Fetched chapter!', data);
-	}, [data]);
 
 	if (!data) {
 		return <Loader />;
