@@ -35,7 +35,7 @@ const Dropdown: React.FC<DropdownProps> = ({
 			</button>
 			<ul className="dropdown-list" hidden={isHidden}>
 				{chapters.map(chapter =>
-					<DropdownItem chapter={chapter} />
+					<DropdownItem key={chapter.chapter_id} chapter={chapter} />
 				)}
 			</ul>
 		</div>
@@ -68,8 +68,8 @@ const ChaptersComponent = () => {
 		<div className="content">
 			<h1 className="page-heading">Chapters</h1>
 			<div className="paragraph-container">
-				{Object.entries(folders).map(entry =>
-					<Dropdown folderName={entry[0]} chapters={entry[1]} />
+				{Object.entries(folders).map((entry, index) =>
+					<Dropdown key={`folder-${index}`} folderName={entry[0]} chapters={entry[1]} />
 				)}
 			</div>
 		</div>

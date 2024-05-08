@@ -5,9 +5,10 @@ import { getCurrentUser } from '@aws-amplify/auth';
 
 // @ts-ignore
 import coverPhoto from '../../img/cover.jpg';
+import { AuthUser } from 'aws-amplify/auth';
 
 const Home: React.FC = () => {
-    const [userInfo, setUserInfo] = useState<any>(undefined);
+    const [userInfo, setUserInfo] = useState<AuthUser>();
 
     const getUserInfo = async () => {
         try {

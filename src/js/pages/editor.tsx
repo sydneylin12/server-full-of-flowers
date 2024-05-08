@@ -12,7 +12,7 @@ import _ from "lodash";
 class Editor extends React.Component {
     state: EditorState;
 
-    constructor(props: any) {
+    constructor(props: object) {
         super(props);
         this.state = {
             chapterId: undefined,
