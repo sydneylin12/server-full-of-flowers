@@ -1,15 +1,16 @@
 import Header from "../components/header";
 import React, { ChangeEvent } from "react";
 import ReactQuill from 'react-quill';
-import { API_ROUTES, CHAPTER_PK } from "../constants/constants";
+import { API_ROUTES, CHAPTER_PK } from "../constants/api";
 import { Chapter, CreateChapterPayload } from "../types/types";
 import { getParam, makeRequest } from "../utils/utils";
-import 'react-quill/dist/quill.snow.css';
 import Loader from "../components/loader";
+import 'react-quill/dist/quill.snow.css';
+import { DEFAULT_STATE, EditorState } from "../types/editor-types";
+import _ from "lodash";
 
 class Editor extends React.Component {
-    // TODO: type this
-    state: any;
+    state: EditorState;
 
     constructor(props: any) {
         super(props);
@@ -18,7 +19,8 @@ class Editor extends React.Component {
             name: undefined,
             text: undefined,
             folder: undefined,
-            isLoading: true
+            isLoading: true,
+            isSaving: false
         };
     }
 
@@ -28,30 +30,20 @@ class Editor extends React.Component {
 
     async getData() {
         const chapterId = getParam();
-
-        // If no param is provided, empty the state
-        // TODO: create a default value
         if (!chapterId) {
-            this.setState({
-                ...this.state,
-                chapterId: undefined,
-                name: undefined,
-                text: undefined,
-                folder: undefined,
-                isLoading: false
-            });
+            this.setState(_.cloneDeep(DEFAULT_STATE));
             return;
         }
 
         const chapters = await makeRequest(API_ROUTES.GET_CHAPTERS) as Chapter[];
         const chapter = chapters.find(c => c[CHAPTER_PK] === chapterId);
         this.setState({
-            ...this.state,
             name: chapter?.name,
             chapterId: chapter?.chapter_id,
             text: chapter?.text,
             folder: chapter?.folder,
-            isLoading: false
+            isLoading: false,
+            isSaving: false
         });
     }
 
@@ -60,7 +52,6 @@ class Editor extends React.Component {
             ...this.state,
             name: e.target.value
         });
-        console.log(this.state);
     };
 
     onChangeFolderName = (e: ChangeEvent<HTMLInputElement>) => {
@@ -68,7 +59,6 @@ class Editor extends React.Component {
             ...this.state,
             folder: e.target.value
         });
-        console.log(this.state);
     };
 
     onChangeQuillEditor = (value: string) => {
@@ -76,17 +66,16 @@ class Editor extends React.Component {
             ...this.state,
             text: value
         });
-        console.log(this.state);
     };
 
     isDisabled = () => {
         const cleanString = this.state.text?.replace(/<[^>]*>/g, '').trim();
-        return !this.state.name || !cleanString;
+        return this.state.isSaving || !this.state.name || !cleanString;
     }
 
     onClick = async () => {
         if (!this.state.name || !this.state.text) {
-            console.error('Invalid state!');
+            console.error('Invalid state!', this.state);
             return;
         }
 
@@ -102,11 +91,17 @@ class Editor extends React.Component {
             body: JSON.stringify(params)
         };
 
-        const res = await makeRequest(API_ROUTES.CREATE_CHAPTER, options);
-        const newChapterId = res[CHAPTER_PK];
-        
         this.setState({
             ...this.state,
+            isSaving: true
+        });
+
+        const res = await makeRequest(API_ROUTES.CREATE_CHAPTER, options);
+        const newChapterId = res[CHAPTER_PK];
+
+        this.setState({
+            ...this.state,
+            isSaving: false,
             chapterId: newChapterId
         });
     };
@@ -128,7 +123,6 @@ class Editor extends React.Component {
                     <ReactQuill theme="snow" value={this.state.text} onChange={this.onChangeQuillEditor} />
                     <div className="save-button-container">
                         <button className="apple-button" disabled={this.isDisabled()} onClick={this.onClick}>Save Chapter</button>
-                        <span id="status-message-container"></span>
                     </div>
                 </div>
             </>

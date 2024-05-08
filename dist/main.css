@@ -1141,7 +1141,7 @@ input::-webkit-inner-spin-button {
     /* Add transition effect */
 }
 
-.link:nth-child(2) {
+.link:last-child {
     border-width: 1px; /* Width of the border */
     border-style: solid; /* Style of the border */
     border-image: linear-gradient(to top, lightgray, white 90%) 1; /* Gradient fading upwards applied to border */

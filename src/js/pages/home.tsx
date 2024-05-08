@@ -23,10 +23,6 @@ const Home: React.FC = () => {
         getUserInfo();
     }, []);
 
-    useEffect(() => {
-        console.log('Fetched data!', userInfo);
-    }, [userInfo])
-
     if (!userInfo) {
         return <Loader />
     }

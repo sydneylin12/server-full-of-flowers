@@ -4,8 +4,8 @@ import ReactDOM from "react-dom/client";
 import Page from "./pages/page";
 import Chapters from "./pages/chapters";
 import Editor from "./pages/editor";
-import { HashRouter, Route, Routes, useParams } from "react-router-dom";
-import { withAuthenticator } from "@aws-amplify/ui-react";
+import { HashRouter, Route, Routes } from "react-router-dom";
+import { Authenticator } from "@aws-amplify/ui-react";
 
 // @ts-ignore
 import AmplifyConfiguration from '../amplifyconfiguration.json';
@@ -26,7 +26,11 @@ const App: React.FC = () => {
     );
 };
 
-const AuthenticatedApp: React.FC = withAuthenticator(App);
+const AuthenticatedApp: React.FC = () => (
+    <Authenticator>
+        <App />
+    </Authenticator>
+);
 
 const root = ReactDOM.createRoot(document.getElementById('root')!);
 root.render(<AuthenticatedApp />);

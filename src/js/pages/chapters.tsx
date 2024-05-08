@@ -2,11 +2,10 @@ import _ from 'lodash';
 import Header from "../components/header";
 import Loader from "../components/loader";
 import React, { useEffect, useState } from "react";
-import { API_ROUTES } from "../constants/constants";
+import { API_ROUTES } from "../constants/api";
 import { makeRequest } from "../utils/utils";
 import { Chapter, DropdownItemProps, DropdownProps, FolderMap } from "../types/types";
 import { useNavigate } from "react-router-dom";
-import { Button } from '@aws-amplify/ui-react';
 
 const DropdownItem: React.FC<DropdownItemProps> = ({
 	chapter
@@ -31,9 +30,9 @@ const Dropdown: React.FC<DropdownProps> = ({
 	const onClick = () => setIsHidden(!isHidden);
 	return (
 		<div className="folder">
-			<Button className='apple-button collapsable' onClick={onClick}>
+			<button className='apple-button collapsable' onClick={onClick}>
 				{folderName}
-			</Button>
+			</button>
 			<ul className="dropdown-list" hidden={isHidden}>
 				{chapters.map(chapter =>
 					<DropdownItem chapter={chapter} />
@@ -60,10 +59,6 @@ const ChaptersComponent = () => {
 	useEffect(() => {
 		getData();
 	}, []);
-
-	useEffect(() => {
-		console.log('Fetched folders!', folders);
-	}, [folders]);
 
 	if (_.isEmpty(folders)) {
 		return <Loader />;

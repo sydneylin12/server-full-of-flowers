@@ -1,4 +1,4 @@
-import { API_ROUTES, CHAPTER_PK, CHAPTER_ID_PARAM } from "../constants/constants";
+import { API_ROUTES, CHAPTER_PK, CHAPTER_ID_PARAM } from "../constants/api";
 import { Chapter } from "../types/types";
 import { makeRequest } from "../utils/utils";
 import Header from "../components/header";
