@@ -5,6 +5,7 @@ import './pages/editor';
 import './pages/page';
 import './pages/chapters';
 
+import '../css/auth.css';
 import '../css/chapters.css';
 import '../css/editor.css';
 import '../css/global.css';

@@ -1,0 +1,67 @@
+.amplify-tabs {
+    text-align: center;
+}
+
+#signIn-tab, #signUp-tab {
+    display: none;
+}
+
+.amplify-flex {
+    border: none;
+    gap: 3px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.amplify-textfield {
+    height: 50px;
+}
+
+.amplify-field__show-password {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-right: 15px;
+}
+
+.amplify-icon {
+    width: 1em;
+    height: 1em;
+    top: -5px;
+    position: relative;
+}
+
+.amplify-button--fullwidth, div[data-amplify-footer] button {
+    width: 100px;
+    background-color: rgb(83, 135, 244);
+    color: white;
+    margin: auto;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.amplify-loader {
+    display: none;
+}
+
+div[data-amplify-footer] {
+    margin-top: 20px;
+}
+
+.amplify-field-group__outer-end {
+    display: none;
+}
+
+fieldset legend {
+    font-size: 40px;
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+    unicode-bidi: isolate;
+}

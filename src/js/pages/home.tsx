@@ -2,10 +2,8 @@ import React, { useEffect, useState } from 'react';
 import Header from '../components/header';
 import Loader from '../components/loader';
 import { getCurrentUser } from '@aws-amplify/auth';
-
-// @ts-ignore
-import coverPhoto from '../../img/cover.jpg';
 import { AuthUser } from 'aws-amplify/auth';
+import coverPhoto from '../../img/cover.jpg';
 
 const Home: React.FC = () => {
     const [userInfo, setUserInfo] = useState<AuthUser>();

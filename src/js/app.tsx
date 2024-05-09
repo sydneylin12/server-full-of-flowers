@@ -1,3 +1,4 @@
+import AmplifyConfiguration from '../amplifyconfiguration.json';
 import React from "react";
 import Home from "./pages/home";
 import ReactDOM from "react-dom/client";
@@ -6,10 +7,9 @@ import Chapters from "./pages/chapters";
 import Editor from "./pages/editor";
 import { HashRouter, Route, Routes } from "react-router-dom";
 import { Authenticator } from "@aws-amplify/ui-react";
-
-// @ts-ignore
-import AmplifyConfiguration from '../amplifyconfiguration.json';
 import { Amplify } from 'aws-amplify';
+
+// Use the service's auth config
 Amplify.configure(AmplifyConfiguration);
 
 const App: React.FC = () => {

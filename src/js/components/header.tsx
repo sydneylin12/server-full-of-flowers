@@ -4,10 +4,10 @@ import { signOut } from "aws-amplify/auth";
 
 const Header = () => (
     <div className="header">
-        <Link className="link" to="/">Home</Link>
-        <Link className="link" to="/editor">Editor</Link>
-        <Link className="link" to="/chapters">Chapters</Link>
-        <div className="link" onClick={() => signOut()}>Logout</div>
+        <Link className="header-tab" to="/">Home</Link>
+        <Link className="header-tab" to="/editor">Editor</Link>
+        <Link className="header-tab" to="/chapters">Chapters</Link>
+        <div className="header-tab" onClick={() => signOut()}>Logout</div>
     </div>
 );
 

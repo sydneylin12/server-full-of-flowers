@@ -3,7 +3,7 @@
     border-bottom: 1px solid lightgray;
 }
 
-.link {
+.header-tab {
     font-size: 20px;
     flex-grow: 1;
     text-align: center;
@@ -11,17 +11,21 @@
     text-decoration: none;
     color: black;
     transition: background-color 0.3s ease;
-    /* Add transition effect */
-}
-
-.link:last-child {
     border-width: 1px; /* Width of the border */
     border-style: solid; /* Style of the border */
     border-image: linear-gradient(to top, lightgray, white 90%) 1; /* Gradient fading upwards applied to border */
     border-bottom: none;
 }
 
-.link:hover {
+.header-tab:first-child {
+    border-left: none;
+}
+
+.header-tab:last-child {
+    border-right: none;
+}
+
+.header-tab:hover {
     background-color: rgb(83, 135, 244);
     border: none;
 }
