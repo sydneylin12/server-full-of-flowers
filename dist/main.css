@@ -1051,11 +1051,20 @@ fieldset legend {
     width: 99%;
     display: flex;
     gap: 10px;
-    justify-content: center;
     padding: 6px 0;
     background-color: #f8f8f8;
     z-index: 1;
     border: 1px solid #ccc;
+    align-items: center;
+    justify-content: center;
+}
+
+.dropdown-chapter-title {
+    width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-align: center;
 }
 
 /* Round off the bottom of the dropdown */

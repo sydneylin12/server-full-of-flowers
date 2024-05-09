@@ -15,9 +15,11 @@ const DropdownItem: React.FC<DropdownItemProps> = ({
 	const goToEdit = () => navigate(`/editor/${chapter.chapter_id}`);
 	return (
 		<li key={chapter.chapter_id}>
-			<span>{chapter.name}</span>
+			<span className='dropdown-chapter-title'>{chapter.name}</span>
 			<i className="fa-solid fa-book-open" onClick={goToRead}></i>
 			<i className="fa-solid fa-file-pen" onClick={goToEdit}></i>
+			<i className="fa-solid fa-eye-slash" onClick={() => alert("Hide feature in progress!")}></i>
+			<i className="fa-solid fa-trash" onClick={() => alert("Delete feature in progress!")}></i>
 		</li>
 	);
 };
